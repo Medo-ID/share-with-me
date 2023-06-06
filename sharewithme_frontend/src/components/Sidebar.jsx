@@ -15,7 +15,7 @@ function Sidebar({user, closeToggle}) {
     
     const categories = [
         {name: 'Animals'},
-        {name: 'Wallpappers'},
+        {name: 'Wallpaper'},
         {name: 'Photography'},
         {name: 'Gaming'},
         {name: 'Science'},
