@@ -18,6 +18,7 @@ function Pin({pin: {postedBy, image, _id, destination, save}}) {
     console.log(alreadySaved)
     
     const savePin = (id) => {
+        
         if(!alreadySaved){
             client
                 .patch(id)
@@ -33,8 +34,17 @@ function Pin({pin: {postedBy, image, _id, destination, save}}) {
                 .commit()
                 .then(() => {
                     window.location.reload()
+                    
                 })
         }
+    }
+
+    const deletePin = (id) => {
+        client
+            .delete(id)
+            .then(() => {
+                window.location.reload()
+            })
     }
 
     return (
@@ -65,7 +75,7 @@ function Pin({pin: {postedBy, image, _id, destination, save}}) {
                             {alreadySaved ? (
                                 <button 
                                     type='button' 
-                                    className='bg-white opacity-60 hover:opacity-100 text-black font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outlined-none'
+                                    className='bg-white opacity-60 hover:opacity-100 text-black font-semibold px-2 py-1 text-sm rounded-3xl hover:shadow-md outlined-none'
                                 >
                                     {save?.length} Saved
                                 </button>
@@ -77,16 +87,48 @@ function Pin({pin: {postedBy, image, _id, destination, save}}) {
                                         savePin(_id)
                                     }}
                                     type='button'
-                                    className='bg-white opacity-60 hover:opacity-100 text-black font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outlined-none'
+                                    className='bg-white opacity-60 hover:opacity-100 text-black font-semibold px-2 py-1 text-sm rounded-3xl hover:shadow-md outlined-none'
                                 >
                                     Save
                                 </button>
-                            )
-                            }
+                            )}
+                        </div>
+                        <div className='flex justify-between items-center gap-2 w-full'>
+                            {destination && (
+                                <a
+                                    href='{destination}'
+                                    target='_blank'
+                                    rel='noreferrer'
+                                    className='bg-white flex items-center gap-2 text-sm text-black font-bold p-1 pl-2 pr-2 rounded-full opacity-60 hover:opacity-100 hover:shadow-md'
+                                >
+                                    <BsFillArrowUpRightCircleFill />
+                                    {destination.length > 20 ? destination.slice(8, 20) : destination.slice(8)}
+                                </a>
+                            )}
+                            {postedBy?._id === user.sub && (
+                                <button
+                                    type='button'
+                                    onClick={(event) => {
+                                        event.stopPropagation()
+                                        deletePin(_id)
+                                    }}
+                                    className='bg-red-700 p-2 opacity-60 hover:opacity-100 text-white font-bold text-base rounded-3xl hover:shadow-md outlined-none'
+                                >
+                                    <AiTwotoneDelete />
+                                </button>
+                            )}
                         </div>
                     </div>
                 )}
             </div>
+            <Link to={`user-profile/${postedBy?._id}`} className='flex gap-2 mt-2 items-center'>
+                <img 
+                    src={postedBy?.image} 
+                    alt='user-profile'
+                    className='w-8 h-8 rounded-full object-cover'
+                />
+                <p className='font-semibold capitalize'>{postedBy?.userName}</p>
+            </Link>
         </div>
     )
 }
