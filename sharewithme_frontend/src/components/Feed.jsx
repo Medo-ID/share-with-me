@@ -34,6 +34,8 @@ export default function Feed() {
   }, [categoryId])
 
   if(loading) return <Spinner message="we are adding new ideas to your feed" />
+  if(!pins?.length) return <h2 className='text-semibold text-center mt-5'>No pins available for this category</h2>
+ 
   return (
     <div>
       {pins && <MasonryLayout pins={pins}/>}

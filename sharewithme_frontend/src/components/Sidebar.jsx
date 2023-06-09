@@ -4,6 +4,7 @@ import {RiHomeFill} from 'react-icons/ri'
 import{IoIosArrowForward} from 'react-icons/io'
 
 import logo from '../assets/logo.png'
+import { categories } from '../utils/data'
 
 function Sidebar({user, closeToggle}) {
     const handleCloseSidebar = () => {
@@ -12,16 +13,6 @@ function Sidebar({user, closeToggle}) {
 
     const activeStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black transition-all duration-200 ease-in-out capitalize'
     const notActiveStyle = 'flex items-center px-5 gap-3 text-grey-500 hover:text-black transition-all duration-200 ease-in-out capitalize'
-    
-    const categories = [
-        {name: 'Animals'},
-        {name: 'Wallpaper'},
-        {name: 'Photography'},
-        {name: 'Gaming'},
-        {name: 'Science'},
-        {name: 'Tech'},
-        {name: 'Other'}
-    ]
     
     return (
         <div className='flex flex-col justify-between bg-white h-full overflow-y-scrikk min-w-210 hide-scrollbar'>
@@ -50,6 +41,11 @@ function Sidebar({user, closeToggle}) {
                             className={({isActive}) => isActive ? activeStyle : notActiveStyle}
                             onClick={handleCloseSidebar}
                         >
+                            <img 
+                                src={category.image}
+                                alt='categoryImage'
+                                className='w-8 h-8 rounded-full shadow-sm '
+                            />
                             {category.name}
                         </NavLink>
                     ))}
@@ -63,6 +59,7 @@ function Sidebar({user, closeToggle}) {
                 >
                     <img src={user?.image} alt="User PictureProfile" className='w-10 h-10 rounded-full' />
                     <p>{user.userName}</p>
+                    <IoIosArrowForward />
                 </Link>
             )}
         </div>
