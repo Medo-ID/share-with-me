@@ -55,7 +55,7 @@ function Pin({ pin }) {
     }
 
     return (
-        <div className='m-2 shadow-sm rounded-lg p-1 hover:shadow-4xl'>
+        <div className='m-2 shadow-sm rounded-lg p-1 hover:shadow-xl'>
             <div
                 onMouseEnter={() => setPostHovered(true)}
                 onMouseLeave={() => setPostHovered(false)}

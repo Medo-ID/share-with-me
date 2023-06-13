@@ -8,8 +8,6 @@ module.exports = {
       },
       boxShadow: {
         '3xl': 'rgba(60, 64, 67, 0.3) 1px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;',
-        '4xl': 'rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;',
-        '5xl': 'box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;',
       },
       margin: {
         320: '320px',
