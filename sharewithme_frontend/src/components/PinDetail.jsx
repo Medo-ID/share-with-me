@@ -40,7 +40,7 @@ export default function PinDetail({ user }) {
   }
 
   const fetchPinDetails = () => {
-    let query =pinDetailQuery(pinId)
+    let query = pinDetailQuery(pinId)
     
     if(query){
       client.fetch(query)
@@ -64,7 +64,7 @@ export default function PinDetail({ user }) {
     
   return (
     <>
-      <div className='flex xl-flex-row flex-col m-auto ' style={{maxWidth: '1200px', borderRadius: '32px'}}>
+      <div className='flex xl-flex-row flex-col m-auto ' style={{maxWidth: '1500px', borderRadius: '32px'}}>
         <div className='flex justify-center items-center md:items-start flex-initial'>
           <img 
             src={pinDetails?.image && urlFor(pinDetails.image).url()} 
@@ -105,28 +105,24 @@ export default function PinDetail({ user }) {
           </Link>
           <h2 className='mt-5 text-base'>Comments</h2>
           <div className='max-h-370 overflow-y-auto'>
-            {pinDetails?.comments?.map((comment, index) => (
+            {pinDetails?.comments?.map((item, index) => (
               <div className='flex gap-2 mt-5 items-center  rounded-lg' key={index}>
                 <img 
-                  src={comment.postedBy.image}
+                  src={item.postedBy.image}
                   alt='user-profile'
                   className='w-10 h-10 rounded-full cursor-pointer'
                 />
                 <div className='flex flex-col'>
-                  <p className='font-bold'>{comment.postedBy.userName}</p>
-                  <p>{comment.comment}</p>
+                  <p className='font-bold'>{item.postedBy.userName}</p>
+                  <p>{item.comment}</p>
                 </div>
               </div>
             ))}
           </div>
           <div className='flex items-center justify-center flex-wrap mt-6 gap-3'>
-          <Link to={`user-profile/${pinDetails.postedBy?._id}`} className='flex gap-2 items-center  rounded-lg'>
-            <img 
-              src={pinDetails.postedBy?.image} 
-              alt='user-profile'
-              className='w-10 h-10 rounded-full object-cover'
-            />
-          </Link>
+          <Link to={`/user-profile/${user._id}`}>
+                <img src={user.image} className="w-10 h-10 rounded-full cursor-pointer" alt="user-profile" />
+              </Link>
           <input
             type='text'
             className='flex-1 border-gray-100 outline-none border-2 p-2 rounded-xl focus:border-gray-300'
@@ -136,10 +132,10 @@ export default function PinDetail({ user }) {
           />
           <button
             type='button'
-            className='bg-green-600 text-white rounded-xl px-6 py-2 font-semibold text-base outline-none'
+            className='bg-bgButton text-white rounded-xl px-6 py-2 font-semibold text-base outline-none'
             onClick={addComment}
           >
-            {addingComment ? 'Posting the comment ...' : 'Post'}
+            {addingComment ? 'Posting...' : 'Post'}
           </button>
           </div>
         </div>
@@ -149,7 +145,7 @@ export default function PinDetail({ user }) {
           More like this
         </h2>
       )}
-      <div className='flex xl-flex-row flex-col m-auto ' style={{maxWidth: '1200px', borderRadius: '32px'}}>
+      <div className='flex xl-flex-row flex-col m-auto' style={{maxWidth: '1500px', borderRadius: '32px'}}>
         {pins ? (
           <MasonryLayout pins={pins} />
         ) : (

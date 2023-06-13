@@ -162,7 +162,7 @@ const CreatePin = ({user}) => {
                 onChange={(event) => setCategory(event.target.value)}
                 className='outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer'
               >
-                <option value='other' className=''>Select Category</option>
+                <option value='other' className='sm:text-bg bg-white'>Select Category</option>
                 {categories.map((category) => (
                   <option value={category.name} className=''>{category.name}</option>
                 ))}
