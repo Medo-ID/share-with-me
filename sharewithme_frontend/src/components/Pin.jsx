@@ -112,7 +112,7 @@ function Pin({ pin }) {
                                     {destination.length > 15 ? `${destination.slice(0, 15)}...` : destination}
                                 </a>
                             )}
-                            {postedBy?._id === user.sub && (
+                            {postedBy?._id === user?.sub && (
                                 <button
                                     type='button'
                                     onClick={(event) => {
