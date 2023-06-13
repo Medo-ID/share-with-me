@@ -1,7 +1,5 @@
 import React from 'react'
-// import GoogleLogin from 'react-google-login'
 import {useNavigate} from 'react-router-dom'
-// import {FcGoogle} from 'react-icons/fc'
 import shareVideo from '../assets/share.mp4'
 import logo from '../assets/logowhite.png'
 import { GoogleOAuthProvider } from '@react-oauth/google'
@@ -28,6 +26,7 @@ function Login() {
             navigate('/', {replace: true})
         })
     }
+    
     return (
         <GoogleOAuthProvider clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}>
             <div className='flex justify-start items-center flex-col h-screen'>
@@ -43,29 +42,14 @@ function Login() {
                     />
                     <div className='absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-blackOverlay'>
                         <div className='p-5'>
-                            <img src={logo} alt="ShareWithU Logoe" width='130px' />
+                            <img src={logo} alt="ShareWithU Logoe" width='250px' />
                         </div>
                         <div className='shadow-2xl'>
                         <GoogleLogin
                             onSuccess={handleGoogleResponse}
                             onError={() => console.log('Login Failed')}
+                            useOneTap
                         />
-                            {/* <GoogleLogin 
-                                clientId={process.env.REACT_APP_GOOGLE_API_TOKEN}
-                                render={(renderProps)=>(
-                                    <button
-                                        type='button'
-                                        className='bg-mainColor flex justify-center items-center p-3 rounded-lg cursor-pointer outline-none'
-                                        onClick={renderProps.onClick}
-                                        disabled={renderProps.disabled}
-                                    >
-                                        <FcGoogle className='mr-4' /> Sign In With Google
-                                    </button>
-                                )}
-                                onSuccess={responseGoogle}
-                                onFailure={responseGoogle}
-                                cookiePolicy={'single_host_origin'}
-                            /> */}
                         </div>
                     </div>
                 </div>

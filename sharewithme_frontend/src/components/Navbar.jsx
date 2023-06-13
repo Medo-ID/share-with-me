@@ -8,23 +8,23 @@ function Navbar({searchTerm, setSearchTerm, user}) {
   if(!user) return null
 
   return (
-    <div className='flex gap-2 md:gap-5 w-full mt-5 pb-7'>
-      <div className='flex justify-start items-center w-full px-2 rounded-md bg-white border-none outline-none focus-within:shadow-sm'>
-        <IoMdSearch fontSize={21} className='ml-1'/>
+    <div className='sticky top-0 flex gap-2 md:gap-5 w-full my-5 bg-bgColor'>
+      <div className='flex justify-start items-center w-full px-2 rounded-md shadow-sm outline-none focus-within:shadow-md'>
+        <IoMdSearch fontSize={21} className='mr-2 rounded-full bg-black text-white p-2 w-8 h-8'/>
         <input 
           type='text'
           onChange={(event) => setSearchTerm(event.target.value)}
           placeholder='Search'
           value={searchTerm}
           onFocus={() => navigate('/search')}
-          className='p-2 w-full bg-white outline-none'
+          className='w-full outline-none rounded-md text-sm font-semibold text-dark bg-bgColor'
         />
       </div>
-      <div className='flex gap-3'>
+      <div className='sticky top-0 flex gap-3'>
         <Link to={`user-profile/${user?._id}`} className='hidden md:block'>
           <img src={user.image} alt='userImage' className='w-14 h-12 rounded-lg'/>
         </Link>
-        <Link to='create-pin' className='bg-black text-white rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center'>
+        <Link to='create-pin' className='bg-black text-white text-lg font-bold rounded-lg w-14 h-12 md:w-14 md:h-12 flex justify-center items-center'>
           <IoMdAdd />
         </Link>
       </div>

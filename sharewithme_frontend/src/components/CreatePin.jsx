@@ -79,7 +79,7 @@ const CreatePin = ({user}) => {
       {fields && (
         <p className='text-red-700 mb-5 text-base transition-all duration-150 ease-in'>Please fill in all the fields</p>
       )}
-      <div className='flex lg:flex-row flex-col justify-center items-center bg-white lg:p-5 p-3 lg:w-4/5 w-full'>
+      <div className='flex lg:flex-row flex-col justify-center items-center lg:p-5 p-3 lg:w-4/5 w-full'>
         <div className='bg-secondaryColor p-3 flex flex-0.7 w-full'>
           <div className='flex justify-center items-center flex-col border-4 border-double border-gray-300 p-3 w-full h-420'>
             {loading && <Spinner />}
@@ -129,7 +129,7 @@ const CreatePin = ({user}) => {
           />
           
           {user && (
-            <div className='flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg'>
+            <div className='flex gap-2 mt-2 mb-2 items-center  rounded-lg'>
               <img
                 src={user.image}
                 className="w-10 h-10 rounded-full"
@@ -162,9 +162,9 @@ const CreatePin = ({user}) => {
                 onChange={(event) => setCategory(event.target.value)}
                 className='outline-none w-4/5 text-base border-b-2 border-gray-200 p-2 rounded-md cursor-pointer'
               >
-                <option value='other' className='bg-white'>Select Category</option>
+                <option value='other' className=''>Select Category</option>
                 {categories.map((category) => (
-                  <option value={category.name} className='bg-white'>{category.name}</option>
+                  <option value={category.name} className=''>{category.name}</option>
                 ))}
               </select>           
             </div>
@@ -172,7 +172,7 @@ const CreatePin = ({user}) => {
               <button
                 type='button'
                 onClick={publishPin}
-                className='flex items-center bg-green-600 text-white font-bold text-base px-5 py-2 hover:drop-shadow-lg rounded-lg outline-none transition'
+                className='flex items-center bg-bgButton text-white font-bold text-base px-5 py-2 hover:drop-shadow-lg rounded-lg outline-none transition'
               >
                 <MdPublish style={{marginRight: '4px'}}/> Publish
               </button>

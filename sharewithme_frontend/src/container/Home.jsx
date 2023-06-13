@@ -35,7 +35,6 @@ function Home() {
     scrollRef.current.scrollTo(0, 0)
   }, [])
   
-  
   return (
     <div className='flex bg-grey-50 md:flex-row flex-col h-screen transaction-height duration-75 ease-out'>
       <div className='hidden md:flex h-screen flex-initial'>
@@ -48,11 +47,11 @@ function Home() {
             <img src={logo} alt="share with me logo" className='w-28' />
           </Link>
           <Link to={`user-profile/${user?._id}`}>
-            <img src={user?.image} alt="User PictureProfile" className='w-28' />
+            <img src={user?.image} alt="User PictureProfile" className='w-14 rounded-lg' />
           </Link>
         </div>
         {toggleSidebar && (
-          <div className='fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in'>
+          <div className='fixed w-4/5 bg-bgColor h-screen overflow-y-auto shadow-md z-10 animate-slide-in'>
             <div className='absolute w-full flex justify-end items-center p-2'>
               <AiFillCloseCircle fontSize={30} className='cursor-pointer' onClick={() => setToggleSidebar(false)} />
             </div>

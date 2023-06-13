@@ -215,7 +215,27 @@ export const categories = [
     image: 'https://i.pinimg.com/236x/1b/c8/30/1bc83077e363db1a394bf6a64b071e9f.jpg',
   },
   {
+    name: 'Gaming',
+    image: 'https://i.pinimg.com/564x/9d/7d/63/9d7d63ea4e0db4be574ad0d73bd0956b.jpg',
+  },
+  {
+    name: 'Tech',
+    image: 'https://i.pinimg.com/564x/c4/06/28/c406280d81f7e0e32f6b5f3af36d4282.jpg',
+  },
+  {
+    name: 'Programmation',
+    image: 'https://i.pinimg.com/564x/37/1b/01/371b016383da1286b7a00aff0324e1e9.jpg',
+  },
+  {
+    name: 'Movie',
+    image: 'https://i.pinimg.com/564x/9f/2c/a3/9f2ca32b08d080d98768b3785b824a5b.jpg',
+  },
+  {
+    name: 'Anime',
+    image: 'https://i.pinimg.com/564x/66/a4/2b/66a42b827848bbfb32b3fb0ae9c8a0d2.jpg',
+  },
+  {
     name: 'others',
     image: 'https://i.pinimg.com/236x/2e/63/c8/2e63c82dfd49aca8dccf9de3f57e8588.jpg',
-  },
+  }
 ]

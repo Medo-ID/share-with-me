@@ -64,15 +64,15 @@ export default function PinDetail({ user }) {
     
   return (
     <>
-      <div className='flex xl-flex-row flex-col m-auto bg-white' style={{maxWidth: '1500px', borderRadius: '32px'}}>
+      <div className='flex xl-flex-row flex-col m-auto ' style={{maxWidth: '1200px', borderRadius: '32px'}}>
         <div className='flex justify-center items-center md:items-start flex-initial'>
           <img 
             src={pinDetails?.image && urlFor(pinDetails.image).url()} 
-            className='rounded-t-3xl rounded-b-lg'
+            className='rounded-3xl' style={{maxHeight: '900px'}}
             alt='pinImage'
           />
         </div>
-        <div className='w-full p-5 flex-1 xl:min--620'>
+        <div className='w-full p-5 flex-1 xl:min-w-620'>
           <div className='flex items-center justify-between'>
             <div className='flex gap-2 items-center'>
             <a
@@ -95,7 +95,7 @@ export default function PinDetail({ user }) {
             <h1 className='text-2xl font-bold break-words mt-3'>{pinDetails.title}</h1>
             <p className='mt-3'>{pinDetails.about}</p>
           </div>
-          <Link to={`user-profile/${pinDetails.postedBy?._id}`} className='flex gap-2 mt-5 items-center bg-white rounded-lg'>
+          <Link to={`user-profile/${pinDetails.postedBy?._id}`} className='flex gap-2 mt-5 items-center  rounded-lg'>
             <img 
               src={pinDetails.postedBy?.image} 
               alt='user-profile'
@@ -103,10 +103,10 @@ export default function PinDetail({ user }) {
             />
               <p className='font-semibold capitalize'>{pinDetails.postedBy?.userName}</p>
           </Link>
-          <h2 className='mt-5 text-2xl'>Comments</h2>
+          <h2 className='mt-5 text-base'>Comments</h2>
           <div className='max-h-370 overflow-y-auto'>
             {pinDetails?.comments?.map((comment, index) => (
-              <div className='flex gap-2 mt-5 items-center bg-white rounded-lg' key={index}>
+              <div className='flex gap-2 mt-5 items-center  rounded-lg' key={index}>
                 <img 
                   src={comment.postedBy.image}
                   alt='user-profile'
@@ -120,7 +120,7 @@ export default function PinDetail({ user }) {
             ))}
           </div>
           <div className='flex items-center justify-center flex-wrap mt-6 gap-3'>
-          <Link to={`user-profile/${pinDetails.postedBy?._id}`} className='flex gap-2 items-center bg-white rounded-lg'>
+          <Link to={`user-profile/${pinDetails.postedBy?._id}`} className='flex gap-2 items-center  rounded-lg'>
             <img 
               src={pinDetails.postedBy?.image} 
               alt='user-profile'
@@ -149,11 +149,13 @@ export default function PinDetail({ user }) {
           More like this
         </h2>
       )}
-      {pins ? (
-        <MasonryLayout pins={pins} />
-      ) : (
-        <Spinner message="Loading more pins" />
-      )}
+      <div className='flex xl-flex-row flex-col m-auto ' style={{maxWidth: '1200px', borderRadius: '32px'}}>
+        {pins ? (
+          <MasonryLayout pins={pins} />
+        ) : (
+          <Spinner message="Loading more pins" />
+        )}
+      </div>
     </>
   )
 }

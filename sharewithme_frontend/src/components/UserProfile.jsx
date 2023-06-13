@@ -8,7 +8,7 @@ import MasonaryLayout from './MasonryLayout'
 import Spinner from './Spinner'
 
 const randomImageUrl = 'https://source.unsplash.com/1600x900/?nature,photography,technology'
-const activeBtnStyles = 'bg-green-600 text-white font-bold p-2 rounded-xl w-20 outline-none'
+const activeBtnStyles = 'bg-bgButton text-white font-bold p-2 rounded-xl w-20 outline-none'
 const notActiveBtnStyles = 'bg-primary mr-4 text-black font-bold p-2 rounded-xl w-20 outline-none'
 
 function UserProfile() {
@@ -78,7 +78,7 @@ function UserProfile() {
                 <button
                   type='button'
                   onClick={logout}
-                  className='flex justify-center items-center bg-white text-dark rounded-lg py-2 px-2 text-base font-semibold'
+                  className='bg-white flex justify-center items-center  text-dark rounded-lg py-2 px-2 text-base font-semibold'
                 >
                   <AiOutlineLogout style={{marginRight: '4px'}}/>
                   Log out
