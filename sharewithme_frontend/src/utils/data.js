@@ -187,10 +187,6 @@ export const categories = [
     image: 'https://i.pinimg.com/750x/66/b1/29/66b1296d36598122e6a4c5452b5a7149.jpg',
   },
   {
-    name: 'photo',
-    image: 'https://i.pinimg.com/236x/72/8c/b4/728cb43f48ca762a75da645c121e5c57.jpg',
-  },
-  {
     name: 'food',
     image: 'https://i.pinimg.com/236x/7d/ef/15/7def15ac734837346dac01fad598fc87.jpg',
   },
@@ -239,7 +235,7 @@ export const categories = [
     image: 'https://i.pinimg.com/564x/66/a4/2b/66a42b827848bbfb32b3fb0ae9c8a0d2.jpg',
   },
   {
-    name: 'others',
+    name: 'Others',
     image: 'https://i.pinimg.com/236x/2e/63/c8/2e63c82dfd49aca8dccf9de3f57e8588.jpg',
   }
 ]

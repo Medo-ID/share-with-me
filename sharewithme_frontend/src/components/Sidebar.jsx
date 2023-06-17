@@ -16,11 +16,11 @@ function Sidebar({user, closeToggle}) {
     const notActiveStyle = 'flex items-center px-4 gap-3 text-sm text-gray-600 hover:text-bold transition-all duration-100 ease-in-out capitalize'
     
     return (
-        <div className='flex flex-col justify-between border-r border-gray-500 h-full overflow-y-scrikk min-w-210 hide-scrollbar'>
+        <div className='flex flex-col justify-between border-r border-gray-500 h-full overflow-y-scroll min-w-210 hide-scrollbar'>
             <div className='flex flex-col'>
                 <Link 
                     to='/'
-                    className='flex px-4 gap-2 my-4 py-1 w-190 items-center'
+                    className='flex px-2 gap-2 m-2 py-1 w-190 items-center'
                     onClick={handleCloseSidebar}
                 >
                     <img src={logo} alt='share with me logo' className='w-full' />
@@ -39,19 +39,15 @@ function Sidebar({user, closeToggle}) {
                         <MdCategory />
                         Discover Categories
                     </h4>
-                    {categories.slice(0, categories.length - 1).map((category) => (
+                    {categories.slice(0, categories.length).map((category) => (
                         <NavLink
                             to={`/category/${category.name}`}
-                            key={category.name}
-                            className={({isActive}) => isActive ? activeStyle : notActiveStyle}
+                            className={({ isActive }) => (isActive ? activeStyle : notActiveStyle)}
                             onClick={handleCloseSidebar}
+                            key={category.name}
                         >
-                            <img 
-                                src={category.image}
-                                alt='categoryImage'
-                                className='w-8 h-8 rounded-full shadow-sm '
-                            />
-                            {category.name}
+                        <img src={category.image} className="w-8 h-8 rounded-full shadow-sm" alt='gategoyImage'/>
+                        {category.name}
                         </NavLink>
                     ))}
                 </div>
@@ -59,7 +55,7 @@ function Sidebar({user, closeToggle}) {
             {user && (
                 <Link
                     to={`user-profile/${user?._id}`}
-                    className='flex my-5 mb-3 gap-2 p-2 items-center rounded-lg shadow-lg mx-3 text-sm font-semibold'
+                    className='flex my-5 mb-3 gap-2 py-2 items-center rounded-lg shadow-lg mx-3 text-sm font-semibold'
                     onClick={handleCloseSidebar}
                 >
                     <img src={user?.image} alt="User PictureProfile" className='w-10 h-10 rounded-full' />

@@ -9,7 +9,7 @@ function Navbar({searchTerm, setSearchTerm, user}) {
 
   return (
     <div className='sticky top-0 flex gap-2 md:gap-5 w-full my-5 bg-bgColor'>
-      <div className='flex justify-start items-center w-full px-2 rounded-md shadow-sm outline-none focus-within:shadow-md'>
+      <div className='flex justify-start items-center w-full px-2 border border-mainOrange rounded-md shadow-sm outline-none focus-within:shadow-md'>
         <IoMdSearch fontSize={21} className='mr-2 rounded-full bg-black text-white p-2 w-8 h-8'/>
         <input 
           type='text'
